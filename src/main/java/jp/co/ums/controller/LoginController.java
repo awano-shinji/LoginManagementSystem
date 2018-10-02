@@ -1,4 +1,4 @@
-package jp.co.lms.controller;
+package jp.co.ums.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
