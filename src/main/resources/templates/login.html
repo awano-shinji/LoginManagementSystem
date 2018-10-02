@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<!-- パスワードの表示可否 -->
+<script>
+	function checkPassword(e) {
+		pass = document.getElementById("password");
+		if (e.checked) {
+			pass.setAttribute("type", "password");
+		} else {
+			pass.setAttribute("type", "text");
+		}
+	}
+</script>
+<title>ログイン</title>
+</head>
+<body>
+	<div align="left">Top</div>
+	<!-- 現在のリアル日時を表示 -->
+	<p align="right">
+		日付:<span th:include="header :: view_time"></span>
+	</p>
+	<div align="center">
+		<!-- ログイン失敗時に表示する -->
+		<form id="form" action="/userInfoCheck" method="POST">
+			<table>
+				<tr>
+					<td>メールアドレス</td>
+					<td><input type="text" id="mailAddress" name="mailAddress"
+						value="" size="20"></td>
+				</tr>
+				<tr>
+					<td>パスワード</td>
+					<td><input type="password" id="password" name="password"
+						value="" size="20"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="checkbox" onclick="checkPassword(this)"
+						checked />文字列を * に置き換える</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td align="center"><input type="submit" value="Login"
+						style="width: 80px;"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div align="center">
+		<table>
+			<tr>
+				<td></td>
+				<td><a href="/signup">○ 初めての方はこちらをクリックしてください</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="/passChange">♦ パスワード変更する方はこちらをクリックしてください</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

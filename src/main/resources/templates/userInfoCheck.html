@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>管理者ページ</title>
+</head>
+<body>
+	<div align="left">管理者用</div>
+	<!-- 現在のリアル日時を表示 -->
+	<p align="right">
+		日付:<span th:include="header :: view_time"></span>
+	</p>
+	<div align="center">
+		<table>
+			<tr>
+				<td>#</td>
+				<td>氏名</td>
+				<td>年齢</td>
+				<td>メールアドレス</td>
+				<td>変更有無</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Loged in</title>
+</head>
+<body>
+	Sign up
+	<p align="right">
+		日付:<span th:include="header :: view_time"></span>
+	</p>
+	<form method="post" action="Logoutページ">
+		<div align="center">
+			<p>ようこそ●●●●さん</p>
+			<p>あなたの年齢は●●と登録されています</p>
+			<input type="submit" value="戻る">
+		</div>
+	</form>
+</body>
+</html>

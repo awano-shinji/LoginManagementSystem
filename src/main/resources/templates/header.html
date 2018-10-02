@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<span th:fragment="view_time"> <span
+		th:text="${#dates.format(new java.util.Date(),'yyyy/MM/dd')}"></span>
+	</span>
+</body>
+</html>

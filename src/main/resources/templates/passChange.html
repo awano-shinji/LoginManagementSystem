@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>パスワード変更</title>
+<script type="text/javascript">
+	function back() {
+
+		if (window.confirm('登録されていませんがよろしいですか？')) {
+
+			return true;
+
+		} else {
+			return false;
+
+		}
+	}
+	function OnClickAdd() {
+		location.href = "http://localhost:8080/";
+	}
+</script>
+</head>
+<body>
+	<div align="left">Change Password</div>
+	<!-- 現在時刻の表示 -->
+	<p align="right">
+		日付:<span th:include="header :: view_time"></span>
+	</p>
+	<div align="center">
+		<form action="/passChange" method="POST" onSubmit="return back()">
+			<table>
+				<tr>
+					<td align="center">現パスワード</td>
+					<td><input type="password" id="password" name="password"
+						value="" size="30" /></td>
+				</tr>
+				<tr>
+					<td align="center">新パスワード</td>
+					<td><input type="password" class="newPassword"
+						name="newPassword" value="" size="30"  /></td>
+				</tr>
+				<tr>
+					<td align="center">新パスワード<br>(確認用)
+					</td>
+					<td><input type="password" class="newPassword"
+						name="newPassword" value="" size="30"  /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>※パスワードは必ず6文字以上の英・数・記号を<br> 使ってください。<br> 記号は
+						+、-、_、%、$、= が使えます。
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="button" value="登録" style="width: 110px;"
+						onClick="OnClickAdd()"> <input type="submit" value="戻る"
+						style="width: 103px;" onClick="disp()"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
