@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SignupController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String back() {
+	public String signup() {
 		return "login";
 	}
 }

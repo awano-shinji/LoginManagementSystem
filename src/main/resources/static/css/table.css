@@ -1,0 +1,20 @@
+﻿<
+@charset "UTF-8";
+
+>
+table {
+	border-collapse: collapse;
+	border: 6px soild #87CEEB;
+}
+
+td {
+	padding: 0.5em;
+	border: 1px solid #87CEEB;
+}
+
+tr {
+	font-weight: lighter;
+	padding: 0.5em;
+	border: 1px solid #87CEEB;
+	background: #F0FFF0
+}

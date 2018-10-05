@@ -15,6 +15,17 @@
 	}
 </script>
 <title>ログイン</title>
+<style type="text/css">
+<!--
+a:link {
+	color: #0000FF;
+}
+
+a:visited {
+	color: #0000FF
+}
+-->
+</style>
 </head>
 <body>
 	<div align="left">Top</div>
@@ -24,11 +35,13 @@
 	</p>
 	<div align="center">
 		<!-- ログイン失敗時に表示する -->
+			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${error}">
+		</span>
 		<form id="form" action="/userInfoCheck" method="POST">
 			<table>
 				<tr>
 					<td>メールアドレス</td>
-					<td><input type="text" id="mailAddress" name="mailAddress"
+					<td><input type="email" id="mailAddress" name="mailAddress"
 						value="" size="20"></td>
 				</tr>
 				<tr>

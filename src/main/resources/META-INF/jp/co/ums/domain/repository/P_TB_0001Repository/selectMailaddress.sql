@@ -1,0 +1,1 @@
+select usr_m_addr from P_TB_0001;
