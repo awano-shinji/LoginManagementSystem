@@ -1,0 +1,1 @@
+select count(usr_u_id) from P_TB_0101;

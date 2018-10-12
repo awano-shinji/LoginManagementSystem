@@ -1,15 +1,14 @@
 package jp.co.ums.domain.model;
 
 import org.seasar.doma.Entity;
-import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 
 @Entity
-@Table(name = "P_TB_0001")
-public class P_TB_0001Entity {
-	@Id
+@Table(name = "P_TB_0103")
+public class P_TB_0103Entity {
+
 	private String usr_m_addr;
-	private String ath_majinai;
+	private int usr_age;
 	private String usr_upd_dt;
 
 	public String getUsr_m_addr() {
@@ -20,12 +19,12 @@ public class P_TB_0001Entity {
 		this.usr_m_addr = usr_m_addr;
 	}
 
-	public String getAth_majinai() {
-		return ath_majinai;
+	public int getUsr_age() {
+		return usr_age;
 	}
 
-	public void setAth_majinai(String ath_majinai) {
-		this.ath_majinai = ath_majinai;
+	public void setUsr_age(int usr_age) {
+		this.usr_age = usr_age;
 	}
 
 	public String getUsr_upd_dt() {
@@ -35,5 +34,4 @@ public class P_TB_0001Entity {
 	public void setUsr_upd_dt(String usr_upd_dt) {
 		this.usr_upd_dt = usr_upd_dt;
 	}
-
 }

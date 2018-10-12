@@ -3,24 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Sign up</title>
-<script type="text/javascript"
-	src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script>
-	$(function() {
-		$(document).on('click', '#back', function() {
-			if (!confirm('登録されていませんがよろしいでしょうか？')) {
-				return false;
-			}
-		});
-	});
-</script>
-<script type="text/javascript" src="../js/admin.js"></script>
-<script>
-	function OnClickAdd() {
-		location.href = "http://localhost:8080/";
-	}
+function back() {
+    var res = confirm("登録されていませんがよろしいですか？");
+    if( res == true ) {
+        // OKなら移動
+        window.location.href = "http://localhost:8080/";
+    }
+}
 </script>
 <link rel="stylesheet" type="text/css" href="../css/table.css">
+<script type="text/javascript" src="../js/admin.js"></script>
 </head>
 <body>
 	Sign up
@@ -29,7 +22,11 @@
 	</p>
 	 <div style = "position:relative;left:300px;"><font color="red">※</font>は入力必須項目です</div>
 	 <div align="center">
-		<form method="POST" action="/signup">
+	 			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${mailerror}">
+		</span>
+			 			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${passerror}">
+		</span>
+		<form method="POST" action="/login" name="form" onSubmit="return check()">
 			<table>
 				<tr>
 					<td align="center">メールアドレス<font color="red">※</font>
@@ -50,26 +47,25 @@
 				<tr>
 					<td align="center">新パスワード<font color="red">※</font>
 					</td>
-					<td><input type="text" name="password" size="80"
+					<td><input type="text" name="password" id="password" size="80"
 						class="required" minlength="6"></td>
 				</tr>
 				<tr>
 					<td align="center">新パスワード<font color="red">※</font> (確認用)
 					</td>
-					<td><input type="text" name="password" size="80"
-						class="required" minlength="6"></td>
+					<td><input type="text" name="confirm" size="80" oninput="CheckPassword(this)" class="required" minlength="6"></td>
 				</tr>
 				<tr>
 					<td align="center">年齢</td>
-					<td><input type="text" name="age" size="5" maxlength="3"></td>
+					<td><input type="number" name="age" size="5" maxlength="3"></td>
 				</tr>
 			</table>
 			<p>
 				※ パスワードは必ず、6文字以上の英・数・記号を使ってください。<br> 記号は+、-、_、%、$、=が使えます。
 			</p>
 
-			<input type="button" value="登録" style="width: 110px;" onClick="OnClickAdd()">
-			&nbsp;<input id="back" type="submit" value="戻る" style="width: 110px;">
+			<input type="submit" id = "regist" value="登録" style="width: 110px;">
+			&nbsp;<input type="button" value="戻る" style="width: 110px;" onClick="back();">
 		</form>
 	</div>
 </body>

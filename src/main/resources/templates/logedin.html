@@ -9,10 +9,10 @@
 	<p align="right">
 		日付:<span th:include="header :: view_time"></span>
 	</p>
-	<form method="post" action="Logoutページ">
+	<form method="post" action="/">
 		<div align="center">
-			<p>ようこそ●●●●さん</p>
-			<p>あなたの年齢は●●と登録されています</p>
+			<p>ようこそ<span th:text="${lastName}" ></span>&nbsp; <span th:text="${firstName}" > </span>さん</p>
+			<p>あなたの年齢は<span th:text="${age}"> </span>と登録されています</p>
 			<input type="submit" value="戻る">
 		</div>
 	</form>

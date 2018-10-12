@@ -1,0 +1,1 @@
+select P_TB_0103.usr_m_addr, usr_l_name,usr_f_name, P_TB_0103.usr_age, P_TB_0102.usr_upd_dt from P_TB_0102 INNER JOIN P_TB_0103 ON P_TB_0102.usr_upd_dt = P_TB_0103.usr_upd_dt;

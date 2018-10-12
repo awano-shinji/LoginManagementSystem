@@ -1,1 +1,0 @@
-select ath_majinai from P_TB_0001;
