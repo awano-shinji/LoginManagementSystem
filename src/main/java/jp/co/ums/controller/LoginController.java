@@ -14,8 +14,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.ums.domain.model.P_TB_0001Entity;
 import jp.co.ums.domain.model.P_TB_0104Entity;
+import jp.co.ums.domain.model.P_TB_0105Entity;
 import jp.co.ums.domain.repository.P_TB_0001Repository;
 import jp.co.ums.domain.repository.P_TB_0104Repository;
+import jp.co.ums.domain.repository.P_TB_0105Repository;
 import jp.co.ums.domain.service.P_TB_0001Service;
 
 @Controller
@@ -32,6 +34,8 @@ public class LoginController {
 	P_TB_0001Repository p_tb_0001Repository;
 	@Autowired
 	P_TB_0104Repository p_tb_0104Repository;
+	@Autowired
+	P_TB_0105Repository p_tb_0105Repository;
 
 	@RequestMapping(value = "/userInfoCheck", method = RequestMethod.POST)
 	public String userInfoCheck(@ModelAttribute("mailAddress") String mail,
@@ -67,7 +71,29 @@ public class LoginController {
 				return "redirect:/logedin";
 			}
 		}
+		//管理者ページに遷移する場合
 		if (mpass.equals(password) && mmail.equals(mail)) {
+			//ユーザーの登録情報を格納するリストを生成
+			List<P_TB_0104Entity> userInfo = new ArrayList<P_TB_0104Entity>();
+			userInfo.addAll(p_tb_0104Repository.selectHelloUser());
+			model.addAttribute("userInfo", userInfo);
+			//ユーザのパスワード変更履歴を格納するリストを生成
+			List<P_TB_0105Entity> countList = new ArrayList<P_TB_0105Entity>();
+			countList.addAll(p_tb_0105Repository.selectChangePass());
+			//パスワード変更回数のカウンタ変数
+			int count = 0;
+
+			for (int i = 0; i < userInfo.size(); i++) {
+				count = 0;
+				for (int j = 0; j < countList.size(); j++) {
+					//登録メールアドレスをもとに、パスワード変更回数を代入する
+					if (userInfo.get(i).getUsr_m_addr().equals(countList.get(j).getUsr_m_addr())) {
+						count++;
+						userInfo.get(i).setCount(count);
+
+					}
+				}
+			}
 			return "/userInfoCheck";
 		} else {
 			return "redirect:/login";

@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../css/login.css">
 <!-- パスワードの表示可否 -->
 <script>
 	function checkPassword(e) {
@@ -33,20 +34,20 @@ a:visited {
 	<p align="right">
 		日付:<span th:include="header :: view_time"></span>
 	</p>
-	<div align="center">
+	<div align="center" class="box">
 		<!-- ログイン失敗時に表示する -->
 			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${error}">
 		</span>
 		<form id="form" action="/userInfoCheck" method="POST">
 			<table>
-				<tr>
-					<td>メールアドレス</td>
-					<td><input type="email" id="mailAddress" name="mailAddress"
-						value="" size="20"></td>
+				<tr class="input">
+					<th class = "name">メールアドレス</th>
+					<td class="col"><input type="email" id="mailAddress" name="mailAddress"
+						value="" size="20" autocomplete="off"></td>
 				</tr>
-				<tr>
-					<td>パスワード</td>
-					<td><input type="password" id="password" name="password"
+				<tr class="input">
+					<th class = "name" align="left">パスワード</th>
+					<td class="col"><input type="password" id="password" name="password"
 						value="" size="20"></td>
 				</tr>
 				<tr>
@@ -57,12 +58,12 @@ a:visited {
 				<tr>
 					<td></td>
 					<td align="center"><input type="submit" value="Login"
-						style="width: 80px;"></td>
+						style="width: 80px;" id = "button"></td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	<div align="center">
+	<div align="center" class="box">
 		<table>
 			<tr>
 				<td></td>

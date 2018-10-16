@@ -109,6 +109,8 @@ public class SignupController {
 		p_tb_0001Entity.setUsr_upd_dt(sdf.format(date));
 		p_tb_0001Repository.insert(p_tb_0001Entity);
 
+
+
 		return "/login";
 	}
 

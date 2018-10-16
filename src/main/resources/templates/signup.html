@@ -13,51 +13,59 @@ function back() {
 }
 </script>
 <link rel="stylesheet" type="text/css" href="../css/table.css">
+<link rel="stylesheet" href="../css/validationEngine.jquery.css" type="text/css"/>
 <script type="text/javascript" src="../js/admin.js"></script>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../js/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="../js/jquery.validationEngine-ja.js" type="text/javascript"></script>
+<script src="../js/passCheck.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../css/button.css">
 </head>
 <body>
 	Sign up
 	<p align="right">
 		日付:<span th:include="header :: view_time"></span>
 	</p>
-	 <div style = "position:relative;left:300px;"><font color="red">※</font>は入力必須項目です</div>
-	 <div align="center">
-	 			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${mailerror}">
+	<div align="center">
+		 			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${mailerror}">
 		</span>
 			 			<span style="border-top:5px solid #ff7d6e;background-color:  #ffebe9;color: #ff7d6e;"  th:text="${passerror}">
 		</span>
-		<form method="POST" action="/login" name="form" onSubmit="return check()">
+		</div>
+	 <div style = "position:relative;left:300px;"><font color="red">※</font>は入力必須項目です</div>
+	 <div align="center">
+		<form id="formID" method="POST" action="/login" name="form" onSubmit="return check()">
 			<table>
 				<tr>
 					<td align="center">メールアドレス<font color="red">※</font>
 					</td>
 					<td><input type="email" name="mail" size="80" maxlength="50"
-						class="required"></td>
+						class="required" placeholder="yamada_tarou@example.jp" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<td align="center">氏名 (姓)<font color="red">※</font>
 					</td>
-					<td><input name="firstName" type="text" class="required"></td>
+					<td><input name="lastName" type="text" class="required" placeholder="山田" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<td align="center">氏名 (名)<font color="red">※</font>
 					</td>
-					<td><input name="lastName" type="text" class="required"></td>
+					<td><input name="firstName" type="text" class="required" placeholder="太郎" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<td align="center">新パスワード<font color="red">※</font>
 					</td>
 					<td><input type="text" name="password" id="password" size="80"
-						class="required" minlength="6"></td>
+						class="required" minlength="6" pattern="^[0-9A-Za-z$%+=_-]{6,}$" placeholder="yamada123" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<td align="center">新パスワード<font color="red">※</font> (確認用)
 					</td>
-					<td><input type="text" name="confirm" size="80" oninput="CheckPassword(this)" class="required" minlength="6"></td>
+					<td><input type="text" name="confirm" size="80" oninput="CheckPassword(this)" class="required" minlength="6" pattern="^[0-9A-Za-z$%+=_-]{6,}$" placeholder="yamada123" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<td align="center">年齢</td>
-					<td><input type="number" name="age" size="5" maxlength="3"></td>
+					<td><input type="number" name="age" size="5" maxlength="3" class="validate[custom[number]]" min="0" max="130" autocomplete="off"></td>
 				</tr>
 			</table>
 			<p>
@@ -65,7 +73,7 @@ function back() {
 			</p>
 
 			<input type="submit" id = "regist" value="登録" style="width: 110px;">
-			&nbsp;<input type="button" value="戻る" style="width: 110px;" onClick="back();">
+			&nbsp;<input type="button" id="backbu" value="戻る" style="width: 110px;" onClick="back();">
 		</form>
 	</div>
 </body>

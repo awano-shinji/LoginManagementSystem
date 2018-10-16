@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/* iPhone6/7/8Plusまで対応 */
+@media screen and (max-width: 414px){
+
+}
+
+
+/* iPad Proまでのタブレット等対応 */
+@media screen and (min-width: 415px) and ( max-width:1024px){
+ html{
+	font-size: 25px;
+ }
+ .box{
+	width: 100%;
+ }
+ td,th{
+	width: 100%;
+	display: block;
+ }
+ .name{
+	text-align: center;
+	width: 250px;
+ }
+ #text{
+	width: 290px;
+	height: 25px;
+	font-size: 30px;
+ }
+ #password{
+	width: 290px;
+	height: 25px;
+	font-size: 50px;
+ }
+ #button{
+	height: 45px;
+	font-size: 25px;
+	position: relative;
+	left: 100px;
+ }
+}
+
+html{
+	width: 100%;
+	font-size: 20px;
+}
+
+#text{
+	width: 240px;
+}
+#password{
+	width: 170px;
+}
+#button{
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 10px 80px 10px 30px;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+
+#button:hover {
+  background: #fcaf3c;
+  text-decoration: none;
+}

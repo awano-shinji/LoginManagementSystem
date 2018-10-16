@@ -8,6 +8,7 @@ public class P_TB_0104Entity {
 	private String usr_l_name;
 	private String usr_f_name;
 	private int usr_age;
+	private int count;
 	private String usr_upd_dt;
 
 	public String getUsr_m_addr() {
@@ -48,5 +49,13 @@ public class P_TB_0104Entity {
 
 	public void setUsr_upd_dt(String usr_upd_dt) {
 		this.usr_upd_dt = usr_upd_dt;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 }

@@ -2,6 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<script>
+	function back() {
+			window.location.href = "http://localhost:8080/";
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="../css/button.css">
 <title>Loged in</title>
 </head>
 <body>
@@ -12,8 +18,8 @@
 	<form method="post" action="/">
 		<div align="center">
 			<p>ようこそ<span th:text="${lastName}" ></span>&nbsp; <span th:text="${firstName}" > </span>さん</p>
-			<p>あなたの年齢は<span th:text="${age}"> </span>と登録されています</p>
-			<input type="submit" value="戻る">
+			<p>あなたの年齢は<span th:text="${age == '0'}? '???' : ${age}"></span>と登録されています</p>
+			<input type="button" value="戻る" style="width: 110px;" id = "backbu" onClick="back();">
 		</div>
 	</form>
 </body>

@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <title>パスワード変更</title>
 <script>
-function back() {
-    var res = confirm("登録されていませんがよろしいですか？");
-    if( res == true ) {
-        // OKなら移動
-        window.location.href = "http://localhost:8080/";
-    }
-}
+	function back() {
+		var res = confirm("登録されていませんがよろしいですか？");
+		if (res == true) {
+			// OKなら移動
+			window.location.href = "http://localhost:8080/";
+		}
+	}
 </script>
 <link rel="stylesheet" type="text/css" href="../css/table.css">
+<link rel="stylesheet" type="text/css" href="../css/button.css">
 <script type="text/javascript" src="../js/admin.js"></script>
 </head>
 <body>
@@ -21,6 +22,13 @@ function back() {
 	<p align="right">
 		日付:<span th:include="header :: view_time"></span>
 	</p>
+	<div align="center">
+		<span
+			style="border-top: 5px solid #ff7d6e; background-color: #ffebe9; color: #ff7d6e;"
+			th:text="${notPass}"> </span> <span
+			style="border-top: 5px solid #ff7d6e; background-color: #ffebe9; color: #ff7d6e;"
+			th:text="${passerror}"> </span>
+	</div>
 	<div style="position: relative; left: 390px;">
 		<font color="red">※</font>は入力必須項目です
 	</div>
@@ -29,19 +37,19 @@ function back() {
 			<table width="600" height="100">
 				<tr>
 					<td align="center">現パスワード<font color="red">※</font></td>
-					<td><input type="text" id="password" name="password" size="30"
-						class="required"></td>
+					<td><input type="text" name="password" size="30"
+						class="required" minlength="6" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<td align="center">新パスワード<font color="red">※</font></td>
 					<td><input type="text" name="newPassword" size="30"
-						class="required" minlength="6"></td>
+						class="required" minlength="6" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<td align="center">新パスワード<font color="red">※</font><br>(確認用)
+					<td align="center">新パスワード<font color="red" >※</font><br>(確認用)
 					</td>
 					<td><input type="text" name="confirm" size="30"
-						oninput="ChangePassword2(this)" class="required" minlength="6"></td>
+						oninput="ChangePassword2(this)" class="required" minlength="6" autocomplete="off"></td>
 				</tr>
 			</table>
 			<p>
@@ -49,7 +57,8 @@ function back() {
 			</p>
 
 			<input type="submit" id="regist" value="登録" style="width: 110px;">
-			&nbsp;<input type="button" value="戻る" style="width: 110px;" onClick="back();">
+			&nbsp;<input type="button" id="backbu" value="戻る" style="width: 110px;"
+				onClick="back();">
 		</form>
 	</div>
 </body>

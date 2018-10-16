@@ -2,7 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<script>
+	function back() {
+			window.location.href = "http://localhost:8080/";
+	}
+</script>
 <title>管理者ページ</title>
+<link rel="stylesheet" type="text/css" href="../css/table.css">
+<link rel="stylesheet" type="text/css" href="../css/button.css">
 </head>
 <body>
 	<div align="left">管理者用</div>
@@ -11,15 +18,24 @@
 		日付:<span th:include="header :: view_time"></span>
 	</p>
 	<div align="center">
-		<table>
+		<table class = "type01">
 			<tr>
-				<td>#</td>
-				<td>氏名</td>
-				<td>年齢</td>
-				<td>メールアドレス</td>
-				<td>変更有無</td>
+				<th>#</th>
+				<th colspan="2">氏名</th>
+				<th>年齢</th>
+				<th>メールアドレス</th>
+				<th>変更有無</th>
+			</tr>
+			<tr th:each="obj,stat : ${userInfo}">
+				<td th:text="${stat.count}"></td>
+<td  colspan="2"  th:text="${obj.usr_l_name} +' '+ ${obj.usr_f_name}"></td>
+				<td th:text="${obj.usr_age == 0}? '' : ${obj.usr_age}"/></td>
+				<td th:text="${obj.usr_m_addr}"></td>
+			    <td th:text="${obj.count}"></td>
 			</tr>
 		</table>
+		<br>
+		<input type="button" value="戻る" style="width: 110px;" id = "backbu" onClick="back();">
 	</div>
 </body>
 </html>

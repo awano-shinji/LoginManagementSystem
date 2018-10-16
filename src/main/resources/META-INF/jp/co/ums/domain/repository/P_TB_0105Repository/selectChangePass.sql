@@ -1,0 +1,1 @@
+select hath_u_id, P_TB_0101.usr_m_addr from P_TB_0002 inner join P_TB_0101 on P_TB_0002.hath_u_id = P_TB_0101.usr_u_id;

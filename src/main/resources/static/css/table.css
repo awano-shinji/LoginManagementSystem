@@ -16,5 +16,23 @@ tr {
 	font-weight: lighter;
 	padding: 0.5em;
 	border: 1px solid #87CEEB;
-	background: #F0FFF0
+	background: #F0FFF0;
 }
+
+table.type01 td{
+border: 1px solid #F0FFF0 ;
+}
+table.type01 th{
+background: #87CEEB;;
+}
+table.type01 tr {
+	font-weight: lighter;
+	padding: 0.5em;
+	border: 1px solid #87CEEB;
+	background: #F0FFF0;
+}
+
+
+
+
+

@@ -1,0 +1,1 @@
+select usr_u_id, P_TB_0001.ath_majinai, P_TB_0101.usr_upd_dt from P_TB_0101 INNER JOIN P_TB_0001 ON P_TB_0101.usr_upd_dt = P_TB_0001.usr_upd_dt;
